@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "date-fns": "^2.29.1",
+    "uuid": "^8.3.2"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index"
+  },
+  "name": "node_recab",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdo-elbeltagy/node_recab.git"
+  },
+  "author": "AElbeltagy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abdo-elbeltagy/node_recab/issues"
+  },
+  "homepage": "https://github.com/abdo-elbeltagy/node_recab#readme",
+  "description": "revision on node",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
