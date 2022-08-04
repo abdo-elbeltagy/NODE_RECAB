@@ -1,21 +1,45 @@
 // const os=require('os')
 const path=require('path')
+const fspromises=require('fs').promises
 
-console.log('hello world')
-const {add,sub}=require('./math')  // we can destructure the functions in the module
-console.log(add(2,3))
-console.log(sub(2,3))
+//using promises
 
-console.log(global)
+const fileOps= async()=>{
+    try{
+        data=await fspromises.readFile(path.join(__dirname,'files','starter.txt'))
+        console.log(data.toString())
+        console.log('heyyyy')
 
-console.log(os.type())
-console.log(os.version())
-console.log(os.homedir())
+    }
+    catch(err){
+        console.log(err)
+    }
+}
+fileOps()
 
-console.log(__dirname) // for directory names
-console.log(__filename)  // for file names
+// the callback hell 
+fs.readFile(path.join(__dirname,'files','starter.txt'),'utf8',(err,data)=>{
+    if(err)
+        throw err
+    console.log(data)
+})
 
-console.log(path.dirname(__filename))
-console.log(path.basename(__filename))
-console.log(path.extname(__filename))
-console.log(path.parse(__filename))
+fs.writeFile(path.join(__dirname,'files', 'reply.txt'),'nice to meet you',(err)=>{
+    if(err) throw err
+    console.log('writer complette')
+
+    fs.appendFile(path.join(__dirname,'files', 'reply.txt'),'\n\n nice to meet you too',(err)=>{
+        if(err) throw err
+        console.log('append complette')
+        
+        fs.rename(path.join(__dirname,'files', 'reply.txt'),path.join(__dirname,'files', 'newreply.txt'),(err)=>{
+            if(err) throw err
+            console.log('rename complette')
+            
+        })
+        
+    })
+
+})
+
+console.log('hello. ...')
